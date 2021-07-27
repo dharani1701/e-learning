@@ -1,6 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.session_store :cache_store
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -79,5 +81,14 @@ Rails.application.configure do
   #Action Mailer configuration to send emails
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
+    config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :domain => "google.com",
+    :user_name => "onlinelearninginsight@gmail.com",
+    :password => "elearning@123",
+    :authentication => "plain",
+    :enable_starttls_auto => true,
+    :ssl => true }
 
 end
